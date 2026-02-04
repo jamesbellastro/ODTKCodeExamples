@@ -6,7 +6,7 @@ ARG pythonMajorMinorVersion=${pythonVersion%.*}
 # Uncomment the second ARG line below if you want to use the custom UBI image build under custom-environment
 # ARG baseImage=registry1.dso.mil/ironbank/redhat/ubi/ubi8:latest
 # ARG baseImage=ansys/odtk/custom/redhat/ubi8:latest
-ARG baseImage=redhat/ubi8:latest
+ARG baseImage=rockylinux:8
 FROM ${baseImage} AS builder
 
 # Inherits Python version from global scope
@@ -20,7 +20,10 @@ USER root
 # Clean all unnecessary files
 RUN set -e; \
     echo ${PYTHON_MINOR_VERSION}; \
-    yum -y install gcc make tar openssl openssl-devel; \
+    yum update -y; \
+    yum -y install dnf-plugins-core; \
+    yum config-manager --set-enabled powertools; \
+    yum -y install gcc make tar findutils openssl openssl-devel; \
     yum -y install bzip2-devel libffi-devel tk-devel; \
     yum -y install zlib-devel ncurses-devel sqlite-devel libnsl2-devel; \
     yum -y install readline-devel gdbm-devel libpcap-devel xz-devel; \
