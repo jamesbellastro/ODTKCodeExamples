@@ -6,11 +6,11 @@ This Docker image code sample demonstrates how to install ODTK Runtime for Linux
 
 ## Prerequisites
 
-* Docker must be installed and running on your system.
-* By default, this sample uses the `redhat/ubi8:latest` Docker image as its baseline. If you are not able to pull images directly from Dockerhub on your system, you must load the baseline OS image on your system before building this image.
-* Access to an Ansys Licensing Server with a valid ODTK license. Edit the [`licensing.env`](../configuration/licensing.env) file to ensure the `ANSYSLMD_LICENSE_FILE` environment variable has your Ansys License Server information.
-* Download version 13.0.1 or later of ODTK for Linux from [AGI Downloads](https://support.agi.com/downloads). Unzip this file and copy the `odtk_binaries_v13.0.1.tgz` and `odtk_data_v13.0.1.tgz` into the [`distributions`](./distributions) folder at the same level as this file.
-* Download Python source code from https://www.python.org/ftp/python/3.13.5/Python-3.13.5.tgz and copy the file into the [`distributions`](./distributions) folder at the same level as this file.
+1. Docker must be installed and running on your system.
+2. By default, this sample uses the `redhat/ubi8:latest` Docker image as its baseline. If you are not able to pull images directly from Dockerhub on your system, you must load the baseline OS image on your system before building this image.
+3. Access to an Ansys Licensing Server with a valid ODTK license. Edit the [`licensing.env`](../configuration/licensing.env) file to ensure the `ANSYSLMD_LICENSE_FILE` environment variable has your Ansys License Server information.
+4. Download version 13.0.1 or later of ODTK for Linux from [AGI Downloads](https://support.agi.com/downloads). Unzip this file and copy the `odtk_binaries_v13.0.1.tgz` and `odtk_data_v13.0.1.tgz` into the [`distributions`](./distributions) folder at the same level as this file.
+5. Download Python source code from https://www.python.org/ftp/python/3.13.5/Python-3.13.5.tgz and copy the file into the [`distributions`](./distributions) folder at the same level as this file.
 > [!NOTE]
 > ODTK requires Python version 3.9 or later to run properly. We recommend using a 3.13.X version, since we test with 3.13.5. Follow instructions on downloading the Python source code below. If you do not want to use the default version, you can do one of the following:
 >    * Update the `pythonVersion` build argument in the `Dockerfile`.
